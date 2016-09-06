@@ -1,4 +1,6 @@
-# Node.js SDK for Api.ai
+# Node.js SDK for Api.ai, with proxy support
+
+This is a fork that provides proxy support for api-ai-node-js.
 
 This plugin allows integrating agents from the [Api.ai](http://api.ai) natural language processing service with your Node.js application.
 
@@ -10,7 +12,7 @@ This plugin allows integrating agents from the [Api.ai](http://api.ai) natural l
 * Install [Node.js](https://nodejs.org/)
 * Install Api.ai SDK with `npm`:
 ```shell
-npm install apiai
+npm install apiai-proxy
 ```
 
 # Usage
@@ -20,7 +22,12 @@ var apiai = require('apiai');
 
 var app = apiai("<your client access token>");
 
-var request = app.textRequest('<Your text query>');
+var options = {    
+    proxyHost: 'proxy-server.com',
+    proxyPort: 433
+};
+
+var request = app.textRequest('<Your text query>', options);
 
 request.on('response', function(response) {
     console.log(response);
