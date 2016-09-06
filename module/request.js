@@ -20,8 +20,8 @@ function Request (application, options) {
     var self = this;
 
     self.agent = new HttpsProxyAgent({
-            proxyHost: 'proxy-chain.intel.com',
-            proxyPort: '912'
+            proxyHost: options.proxyHost,
+            proxyPort: options.proxyPort
         });
 
     self.clientAccessToken = application.clientAccessToken;

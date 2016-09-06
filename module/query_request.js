@@ -42,6 +42,14 @@ function QueryRequest (application, options) {
         self.version = options.version;
     }
 
+    if ('proxyHost' in options) {
+        self.proxyHost = options.proxyhost;
+    }
+
+    if ('proxyPort' in options) {
+        self.proxyPort = options.proxyPort;
+    }
+
     if ('requestSource' in application) {
         self.requestSource = application.requestSource;
     }
