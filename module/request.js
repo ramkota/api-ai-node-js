@@ -18,7 +18,7 @@ util.inherits(Request, EventEmitter);
 
 function Request (application, options) {
     var self = this;
-
+	if(options.proxyHost)
     self.agent = new HttpsProxyAgent({
             proxyHost: options.proxyHost,
             proxyPort: options.proxyPort
